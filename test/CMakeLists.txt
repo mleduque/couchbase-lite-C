@@ -29,9 +29,19 @@ set(TEST_SRC
     ${TOP}vendor/couchbase-lite-core/vendor/fleece/Fleece/Support/LibC++Debug.cc
     ${TOP}vendor/couchbase-lite-core/vendor/fleece/Fleece/Support/Backtrace.cc)
 
+set(OPEN_CLOSE_SRC
+    open_close.c)
+
+set(OPEN_CLOSE_DELETE_SRC
+    open_close.c)
+
 add_executable(CBL_C_Tests ${TEST_SRC} )
+add_executable(open_close ${OPEN_CLOSE_SRC} )
+add_executable(open_close_delete ${OPEN_CLOSE_DELETE_SRC} )
 
 target_link_libraries(CBL_C_Tests PRIVATE  CouchbaseLiteC FleeceStatic)
+target_link_libraries(open_close PRIVATE  CouchbaseLiteC FleeceStatic)
+target_link_libraries(open_close_delete PRIVATE  CouchbaseLiteC FleeceStatic)
 
 if(MSVC)
     target_include_directories(
