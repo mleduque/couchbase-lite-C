@@ -35,13 +35,10 @@ int main() {
             printf("open failed, %i %i\n", error.domain, error.code);
             exit(error.code);
         }
-        CBLDatabase_Close(db, &error);
-        // if (error.code != 0) {
-        //     printf("close failed, %i %i\n", error.domain, error.code);
-        //     exit(error.code);
-        // }
-        if (system("rm -Rf /tmp/cbltest/*") != 0) {
-            printf("could not delete directory /tmp/cbltest/");
+        CBLDatabase_Delete(db, &error);
+        if (!db && error.code != 0) {
+            printf("delete failed, %i %i\n", error.domain, error.code);
+            exit(error.code);
         }
         if (i % 100 == 0) {
             printf("%li\n", i);

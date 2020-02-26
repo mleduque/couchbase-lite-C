@@ -33,7 +33,7 @@ set(OPEN_CLOSE_SRC
     open_close.c)
 
 set(OPEN_CLOSE_DELETE_SRC
-    open_close.c)
+    open_close_delete.c)
 
 add_executable(CBL_C_Tests ${TEST_SRC} )
 add_executable(open_close ${OPEN_CLOSE_SRC} )
