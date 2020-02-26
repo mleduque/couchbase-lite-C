@@ -25,7 +25,7 @@ int main() {
             exit(errno);
         }
     }
-    CBL_SetLogLevel(CBLLogWarning, kCBLLogDomainAll);
+    CBL_SetLogLevel(CBLLogDebug, kCBLLogDomainAll);
     uint64_t i = 0;
     while (true) {
         CBLDatabase* db = CBLDatabase_Open("open_close_db",
